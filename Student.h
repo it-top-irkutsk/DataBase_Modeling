@@ -1,22 +1,11 @@
 #pragma once
 
 #include <string>
+#include "Date.h"
+#include "Sex.h"
+#include "Faculty.h"
 
 using namespace std;
-
-struct Date {
-    int year;
-    int month;
-    int day;
-};
-
-enum Sex {
-    Male, Female, Other
-};
-
-enum Faculty {
-    SofDev, Design
-};
 
 struct Student {
     string lastName;

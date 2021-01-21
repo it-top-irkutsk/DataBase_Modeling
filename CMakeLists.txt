@@ -3,4 +3,4 @@ project(DataBase_Modeling)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(DataBase_Modeling main.cpp Student.h)
+add_executable(DataBase_Modeling main.cpp Student.h Date.h Sex.h Faculty.h)
