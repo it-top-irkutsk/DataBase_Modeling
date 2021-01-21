@@ -10,6 +10,16 @@ int main()
     char select;
     bool isRun = true;
 
+    Student student;
+    student.lastName = "Starinin";
+    student.firstName = "Andrey";
+    student.dateOfBirth.year = 1986;
+    student.dateOfBirth.month = 2;
+    student.dateOfBirth.day = 18;
+    student.sex = Sex::Male;
+    student.faculty = Faculty::SofDev;
+    student.isStudy = false;
+
     Welcome();
 
     do {
@@ -20,6 +30,7 @@ int main()
             case '1':
                 break;
             case '2':
+                ShowStudent(student);
                 break;
             case '3':
                 break;

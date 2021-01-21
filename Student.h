@@ -14,4 +14,13 @@ struct Student {
     Sex sex;
     Faculty faculty;
     bool isStudy;
+
+    string IsStudyToString()
+    {
+        if (isStudy) {
+            return "учится";
+        } else {
+            return "не учится";
+        }
+    }
 };

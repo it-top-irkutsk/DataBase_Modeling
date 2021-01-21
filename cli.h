@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <string>
+#include "Student.h"
 
 using namespace std;
 
@@ -25,4 +27,17 @@ void ShowMenu()
     cout << "5. Экспортировать данные в файл" << endl;
     cout << "0. Выход из программы" << endl;
     cout << "++++++++++++++++++++++++++++++++++++++++" << endl;
+}
+
+void ShowStudent(Student student)
+{
+    system("cls");
+
+    cout << "--- Данные студента ---" << endl;
+    cout << "Фамилия: " << student.lastName << endl;
+    cout << "Имя: " << student.firstName << endl;
+    cout << "Дата рождения: " << student.dateOfBirth.ToString() << endl;
+    cout << "Пол: " << SexToString(student.sex) << endl;
+    cout << "Факультет: " << FacultyToString(student.faculty) << endl;
+    cout << "Учится?: " << student.IsStudyToString() << endl;
 }
