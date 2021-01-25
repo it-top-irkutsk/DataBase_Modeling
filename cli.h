@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include "Student.h"
 
 using namespace std;
@@ -46,4 +47,16 @@ void ShowStudents(vector<Student> students)
     for (Student element : students) {
         ShowStudent(element);
     }
+}
+
+void ExportToFile(vector<Student> students){
+    ofstream file;
+    file.open("expstudents.csv");
+    if (file.is_open()){
+        for (Student element : students){
+            file << element.firstName << ";" << element.lastName << ";" << element.dateOfBirth.ToString() << ";" << element.sex << ";" <<
+            element.faculty << ";" << element.IsStudyToString()<< endl;
+        }
+    }
+    file.close();
 }
