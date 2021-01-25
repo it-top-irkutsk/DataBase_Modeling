@@ -8,8 +8,7 @@
 
 using namespace std;
 
-void Welcome()
-{
+void Welcome() {
     cout << "=========================" << endl;
     cout << "=== Data base student ===" << endl;
     cout << "=== ----------------- ===" << endl;
@@ -18,8 +17,7 @@ void Welcome()
     cout << endl;
 }
 
-void ShowMenu()
-{
+void ShowMenu() {
     system("cls");
     cout << "+++ МЕНЮ +++" << endl;
     cout << "1. Показать информацию о всех студентах" << endl;
@@ -31,8 +29,7 @@ void ShowMenu()
     cout << "++++++++++++++++++++++++++++++++++++++++" << endl;
 }
 
-void ShowStudent(Student student)
-{
+void ShowStudent(Student student) {
     cout << "--- Данные студента ---" << endl;
     cout << "Фамилия: " << student.lastName << endl;
     cout << "Имя: " << student.firstName << endl;
@@ -42,21 +39,23 @@ void ShowStudent(Student student)
     cout << "Учится?: " << student.IsStudyToString() << endl;
 }
 
-void ShowStudents(vector<Student> students)
-{
+void ShowStudents(vector<Student> students) {
     for (Student element : students) {
         ShowStudent(element);
     }
 }
 
-void ExportToFile(vector<Student> students){
+void ExportToFile(vector<Student> students, string path) {
     ofstream file;
-    file.open("expstudents.csv");
-    if (file.is_open()){
-        for (Student element : students){
-            file << element.firstName << ";" << element.lastName << ";" << element.dateOfBirth.ToString() << ";" << element.sex << ";" <<
-            element.faculty << ";" << element.IsStudyToString()<< endl;
+    file.open(path);
+    if (file.is_open()) {
+        for (Student element : students) {
+            file << element.firstName << ";" << element.lastName << ";" << element.dateOfBirth.ToString() << ";"
+                 << element.sex << ";" <<
+                 element.faculty << ";" << element.IsStudyToString() << endl;
         }
+    } else {
+        cout << "Файл не открылся" << endl;
     }
     file.close();
 }
