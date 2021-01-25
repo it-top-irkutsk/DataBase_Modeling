@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Student.h"
 
 using namespace std;
@@ -31,8 +32,6 @@ void ShowMenu()
 
 void ShowStudent(Student student)
 {
-    system("cls");
-
     cout << "--- Данные студента ---" << endl;
     cout << "Фамилия: " << student.lastName << endl;
     cout << "Имя: " << student.firstName << endl;
@@ -40,4 +39,11 @@ void ShowStudent(Student student)
     cout << "Пол: " << SexToString(student.sex) << endl;
     cout << "Факультет: " << FacultyToString(student.faculty) << endl;
     cout << "Учится?: " << student.IsStudyToString() << endl;
+}
+
+void ShowStudents(vector<Student> students)
+{
+    for (Student element : students) {
+        ShowStudent(element);
+    }
 }

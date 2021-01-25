@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "cli.h"
 
 using namespace std;
@@ -20,6 +21,10 @@ int main()
     student.faculty = Faculty::SofDev;
     student.isStudy = false;
 
+    vector<Student> students;
+    students.push_back(student);
+    students.push_back(student);
+
     Welcome();
 
     do {
@@ -28,9 +33,9 @@ int main()
         cin >> select;
         switch (select) {
             case '1':
+                ShowStudents(students);
                 break;
             case '2':
-                ShowStudent(student);
                 break;
             case '3':
                 break;
