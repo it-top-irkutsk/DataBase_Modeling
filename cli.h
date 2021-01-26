@@ -59,3 +59,42 @@ void ExportToFile(vector<Student> students, string path) {
     }
     file.close();
 }
+
+void ImportFromFile(vector<Student> &students, string path) {
+    Student tempStudent;
+    string tempStr;
+    int ind;
+
+    ifstream file;
+    file.open(path, ios_base::in);
+    if (file.is_open()) {
+        while (!file.eof()) {
+            getline(file, tempStudent.firstName, ';');
+            getline(file, tempStudent.lastName, ';');
+            getline(file, tempStr, ';');
+            tempStudent.dateOfBirth.ParseStrDate(tempStr);
+            getline(file, tempStr, ';');
+            if (tempStr == "мужской") {
+                tempStudent.sex = Sex::Male;
+            } else if (tempStr == "женский") {
+                tempStudent.sex = Sex::Female;
+            } else if (tempStr == "другой") {
+                tempStudent.sex = Sex::Other;
+            }
+            getline(file, tempStr, ';');
+          if (tempStr == "Разработка ПО") {
+                tempStudent.faculty = Faculty::SofDev;
+            } else {
+                tempStudent.faculty = Faculty::Design;
+            }
+            getline(file, tempStr, ';');
+            if (tempStr == "учится") {
+                tempStudent.isStudy = true;
+            } else {
+                tempStudent.isStudy = false;
+            }
+            students.push_back(tempStudent);
+        }
+
+    }
+}
