@@ -59,3 +59,32 @@ void ExportToFile(vector<Student> students, string path) {
     }
     file.close();
 }
+void ImportToFile (vector<Student>& students, string path){
+    Student student;
+    string tempData;
+    ifstream file;
+    file.open(path, ios_base::in);
+    if (file.is_open()) {
+        while (!file.eof()) {
+            getline(file, student.firstName, ';');
+            getline(file, student.lastName, ';');
+            getline(file, tempData, '.');
+            student.dateOfBirth.day = stoi(tempData);
+            getline(file, tempData, '.');
+            student.dateOfBirth.month = stoi(tempData);
+            getline(file, tempData, ';');
+            student.dateOfBirth.year = stoi(tempData);
+            getline(file, tempData, ';');
+            student.sex = StringToSex(stoi(tempData));
+            getline(file, tempData, ';');
+            student.faculty = StringToFaculty(stoi(tempData));
+            getline(file, tempData);
+            student.isStudy = stoi(tempData);
+
+        }
+        students.push_back(student);
+        file.close();
+    } else {
+        cout << "Файл не открылся" << endl;
+    }
+}
