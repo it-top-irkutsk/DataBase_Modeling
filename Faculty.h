@@ -17,3 +17,11 @@ string FacultyToString(Faculty faculty)
             return "Дизайн";
     }
 }
+Faculty StringToFaculty (int number){
+    switch (number) {
+        case 0:
+            return SofDev;
+        case 1:
+            return Design;
+    }
+}
