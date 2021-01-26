@@ -60,9 +60,11 @@ void ExportToFile(vector<Student> students, string path) {
     }
     file.close();
 }
+
 void ImportToFile (vector<Student>& students, string path){
     Student student;
     string tempData;
+
     ifstream file;
     file.open(path, ios_base::in);
     if (file.is_open()) {
@@ -81,7 +83,6 @@ void ImportToFile (vector<Student>& students, string path){
             student.faculty = StringToFaculty(stoi(tempData));
             getline(file, tempData);
             student.isStudy = stoi(tempData);
-
         }
         students.push_back(student);
         file.close();
