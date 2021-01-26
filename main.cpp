@@ -7,7 +7,8 @@ using namespace std;
 int main()
 {
     system("chcp 65001");
-
+    
+    string path = "person.csv";
     char select;
     bool isRun = true;
 
@@ -42,6 +43,9 @@ int main()
             case '4':
                 break;
             case '5':
+                break;
+            case '6':
+                ImportToFile(students,path);
                 break;
             case '0':
                 isRun = false;
